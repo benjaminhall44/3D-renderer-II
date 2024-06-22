@@ -1,4 +1,5 @@
 #pragma once
+#include "SculptureElement.h"
 #include "Image.h"
 #include "SpaceVector.h"
 #include "Rotation.h"
@@ -6,23 +7,26 @@
 
 class Render;
 
-class TriangularSculptureElement {
+class TriangularSculptureElement : public SculptureElement {
 public:
 	TriangularSculptureElement(SpaceVector A, SpaceVector B, SpaceVector C, const Image* texture);
 
-	TriangularSculptureElement adjust(SpaceVector move, Rotation turn);
-	TriscelData preRender();
+	virtual TriangularSculptureElement* adjust(SpaceVector move, Rotation turn);
 
-	void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible);
+	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible);
 
-	SpaceVector traceRay(const SpaceVector ray, TriscelData data);
-	pixel pointColor(SpaceVector point, const TriscelData& data, bool& flag);
+	virtual SpaceVector traceRay(const SpaceVector ray);
+	virtual pixel pointColor(SpaceVector point, bool& flag);
+protected:
+	
 private:
+	TriscelData* preRender();
 	const Image* texture;
+	TriscelData* data;
 	SpaceVector a;
 	SpaceVector b;
 	SpaceVector c;
-
+	//
 };
 
 typedef TriangularSculptureElement triscel;

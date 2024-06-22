@@ -140,13 +140,15 @@
   <ItemGroup>
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="PixelPoint.h" />
+    <ClInclude Include="PlaneSculptureElement.h" />
+    <ClInclude Include="RectangularSculptureElement.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="rect.h" />
     <ClInclude Include="Perspective.h" />
+    <ClInclude Include="RescelData.h" />
     <ClInclude Include="Rotation.h" />
     <ClInclude Include="Sculpture.h" />
-    <ClInclude Include="SculptureData.h" />
     <ClInclude Include="SculptureElement.h" />
     <ClInclude Include="SpaceVector.h" />
     <ClInclude Include="pixel.h" />

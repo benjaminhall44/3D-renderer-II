@@ -3,14 +3,16 @@
 
 TriangularSculptureElement::TriangularSculptureElement(SpaceVector A, SpaceVector B, SpaceVector C, const Image* Texture) : a(A), b(B), c(C), texture(Texture) {}
 
-triscel TriangularSculptureElement::adjust(SpaceVector move, Rotation turn) {
-	return triscel(move + turn.rotate(a), move + turn.rotate(b), move + turn.rotate(c), texture);
+triscel* TriangularSculptureElement::adjust(SpaceVector move, Rotation turn) {
+	triscel* adjusted = new triscel(move + turn.rotate(a), move + turn.rotate(b), move + turn.rotate(c), texture);
+	adjusted->data = (TriscelData*) (adjusted->preRender());
+	return adjusted;
 }
 
-TriscelData TriangularSculptureElement::preRender() {
-	return TriscelData(a, b, c);
+TriscelData* TriangularSculptureElement::preRender() {
+	return new TriscelData(a, b, c);
 }
-#include "TriscelData.h"
+
 void TriangularSculptureElement::getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible) {
 	PixelPoint corners[3] = {rendering.Project(a) , rendering.Project(b), rendering.Project(c)};
 	visible = true;
@@ -92,15 +94,14 @@ void TriangularSculptureElement::getCorners(const Render& rendering, int& xmax, 
 	}
 }
 
-
-SpaceVector TriangularSculptureElement::traceRay(const SpaceVector ray, TriscelData data) {
-	return ray * (data.planeConstant / (ray * data.normal));
+SpaceVector TriangularSculptureElement::traceRay(const SpaceVector ray) {
+	return ray * (data->planeConstant / (ray * data->normal));
 }
 
-pixel TriangularSculptureElement::pointColor(SpaceVector point, const TriscelData& data, bool& flag) {
+pixel TriangularSculptureElement::pointColor(SpaceVector point, bool& flag) {
 	point -= c;
-	double Px = (point * data.bPrime) / data.bPrime.squared();
-	double Py = ((point - data.B * Px) * data.A) / data.A.squared();
+	double Px = (point * data->bPrime) / data->bPrime.squared();
+	double Py = ((point - data->B * Px) * data->A) / data->A.squared();
 
 	// Determine pixel coords
 	if (Px >= 0 && Px < 1 && Py >= 0 && Py < Px) {

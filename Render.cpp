@@ -14,22 +14,21 @@ void Render::RenderWorld(const Perspective& view, const Sculpture& world) {
 }
 
 void Render::RenderSculpture(Rotation rotation, SpaceVector position, Sculpture scnode) {
-	for (triscel element : scnode.getElements()) {
-		triscel observed = element.adjust(position, rotation);
-		TriscelData data = observed.preRender();
+	for (SculptureElement* element : scnode.getElements()) {
+		SculptureElement* observed = element->adjust(position, rotation);
 
 		int xmax = 0, xmin = 0, ymax = 0, ymin = 0;
 		bool visible = true;
 
-		observed.getCorners(*this, xmax, xmin, ymax, ymin, visible);
+		observed->getCorners(*this, xmax, xmin, ymax, ymin, visible);
 
 		if (visible) {
 			for (int x = xmin; x <= xmax; x++) {
 				for (int y = ymin; y <= ymax; y++) {
-					SpaceVector point = observed.traceRay(getPixelVector(x, y), data);
+					SpaceVector point = observed->traceRay(getPixelVector(x, y));
 					if (point.getZ() > 0 && checkPointDepth(x, y, point.getZ())) {
 						bool flag;
-						pixel color = observed.pointColor(point, data, flag);
+						pixel color = observed->pointColor(point, flag);
 						if (flag) {
 							Print(x, y, point.getZ(), color);
 						}

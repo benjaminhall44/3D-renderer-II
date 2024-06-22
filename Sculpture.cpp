@@ -3,7 +3,7 @@
 Sculpture::Sculpture(
 	SpaceVector Displacement,
 	Rotation rotation,
-	vector<triscel> Elements,
+	vector<SculptureElement*> Elements,
 	vector<Sculpture> Children) :
 	position(Displacement), 
 	rotation(rotation), 
@@ -28,13 +28,13 @@ Sculpture Sculpture::Cube(double side, Image * *face, SpaceVector Displacement, 
 	SpaceVector SWU = Displacement + SpaceVector(-radius, radius, -radius);
 	SpaceVector SWD = Displacement + SpaceVector(-radius, -radius, -radius);
 
-	vector<triscel> faces;
-	faces.push_back(triscel(NWD, NEU, NED, face[0])); // North face
-	faces.push_back(triscel(SED, SWU, SWD, face[1])); // South face
-	faces.push_back(triscel(NED, SEU, SED, face[2])); // East face
-	faces.push_back(triscel(SWD, NWU, NWD, face[3])); // West face
-	faces.push_back(triscel(SEU, NWU, SWU, face[4])); // Up face
-	faces.push_back(triscel(NED, SWD, NWD, face[5])); // Down face
+	vector<SculptureElement*> faces;
+	faces.push_back(new triscel(NWD, NEU, NED, face[0])); // North face
+	faces.push_back(new triscel(SED, SWU, SWD, face[1])); // South face
+	faces.push_back(new triscel(NED, SEU, SED, face[2])); // East face
+	faces.push_back(new triscel(SWD, NWU, NWD, face[3])); // West face
+	faces.push_back(new triscel(SEU, NWU, SWU, face[4])); // Up face
+	faces.push_back(new triscel(NED, SWD, NWD, face[5])); // Down face
 
 	return Sculpture(Displacement, rotation, faces);
 

@@ -86,7 +86,13 @@
     <ClInclude Include="SculptureElement.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="SculptureData.h">
+    <ClInclude Include="RectangularSculptureElement.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="RescelData.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneSculptureElement.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>

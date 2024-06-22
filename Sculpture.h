@@ -8,12 +8,12 @@ using namespace std;
 
 class Sculpture {
 public:
-	Sculpture(SpaceVector Displacement = ZEROVECTOR, Rotation rotation = MAINAXIS, vector<triscel> elements = {}, vector<Sculpture> children = {});
+	Sculpture(SpaceVector Displacement = ZEROVECTOR, Rotation rotation = MAINAXIS, vector<SculptureElement*> elements = {}, vector<Sculpture> children = {});
 
 	static Sculpture Cube(double side, Image* face, SpaceVector Displacement = ZEROVECTOR, Rotation rotation = MAINAXIS); // Image for 6 identical sides
 	static Sculpture Cube(double side, Image** face, SpaceVector Displacement = ZEROVECTOR, Rotation rotation = MAINAXIS); // 6 Images one for each side
 
-	std::vector<triscel>& getElements() {
+	std::vector<SculptureElement*>& getElements() {
 		return elements;
 	}
 	std::vector<Sculpture> getChildren() {
@@ -29,7 +29,7 @@ private:
 	SpaceVector position;
 	Rotation rotation;
 
-	vector<triscel> elements;
+	vector<SculptureElement*> elements;
 
 	vector<Sculpture> children;
 };

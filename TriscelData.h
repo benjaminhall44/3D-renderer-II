@@ -1,8 +1,7 @@
 #pragma once
 #include "SpaceVector.h"
-#include "SculptureData.h"
 
-struct TriscelData : SculptureData {
+struct TriscelData {
 	TriscelData(const SpaceVector& a, const SpaceVector& b, const SpaceVector& c) :
 		normal((a - c) / (b - c)), planeConstant(c * normal), A(a - c), B(b - c), bPrime((B - (A * (B * A) / A.squared()))) {};
 	const SpaceVector& normal;
