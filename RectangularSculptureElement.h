@@ -1,30 +1,20 @@
 #pragma once
-#include "SculptureElement.h"
+#include "PlaneSculptureElement.h"
 #include "Image.h"
-#include "SpaceVector.h"
-#include "Rotation.h"
-#include "RescelData.h"
 
 class Render;
 
-class RectangularSculptureElement : public SculptureElement {
+class RectangularSculptureElement : public PlaneSculptureElement {
 public:
-	RectangularSculptureElement(SpaceVector A, SpaceVector B, SpaceVector C, const Image* texture);
+	RectangularSculptureElement(SpaceVector leftTop, SpaceVector rightTop, SpaceVector leftBottom, const Image* Texture);
 
-	RectangularSculptureElement* adjust(SpaceVector move, Rotation turn);
-
-	void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible);
-
-	SpaceVector traceRay(const SpaceVector ray);
-	pixel pointColor(SpaceVector point, bool& flag);
+protected:
+	virtual PlaneSculptureElement* getNew(SpaceVector origin, SpaceVector xaxis, SpaceVector yaxis) override;
+	virtual bool onSurface(double px, double py) override;
+	virtual std::vector<PlanePoint> getEnds() override;
+	virtual pixel pointColor(double px, double py) override;
 private:
-	RescelData* preRender();
-
 	const Image* texture;
-	RescelData* data;
-	SpaceVector a;
-	SpaceVector b;
-	SpaceVector c;
 
 };
 

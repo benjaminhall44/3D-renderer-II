@@ -42,6 +42,15 @@
     <ClCompile Include="Rotation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlaneSculptureElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlascelData.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangularSculptureElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpaceVector.h">
@@ -87,9 +96,6 @@
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="RectangularSculptureElement.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="RescelData.h">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="PlaneSculptureElement.h">

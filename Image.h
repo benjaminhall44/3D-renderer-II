@@ -36,6 +36,13 @@ public:
 	int getSizeY() const {
 		return y_size;
 	}
+	void fill(pixel color) {
+		for (int x = 0; x < x_size; x++) {
+			for (int y = 0; y < y_size; y++) {
+				setPixel(x, y, color);
+			}
+		}
+	}
 
 
 private:

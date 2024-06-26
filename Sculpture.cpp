@@ -1,4 +1,5 @@
 #include "Sculpture.h"
+#include "RectangularSculptureElement.h"
 
 Sculpture::Sculpture(
 	SpaceVector Displacement,
@@ -29,12 +30,12 @@ Sculpture Sculpture::Cube(double side, Image * *face, SpaceVector Displacement, 
 	SpaceVector SWD = Displacement + SpaceVector(-radius, -radius, -radius);
 
 	vector<SculptureElement*> faces;
-	faces.push_back(new triscel(NWD, NEU, NED, face[0])); // North face
-	faces.push_back(new triscel(SED, SWU, SWD, face[1])); // South face
-	faces.push_back(new triscel(NED, SEU, SED, face[2])); // East face
-	faces.push_back(new triscel(SWD, NWU, NWD, face[3])); // West face
-	faces.push_back(new triscel(SEU, NWU, SWU, face[4])); // Up face
-	faces.push_back(new triscel(NED, SWD, NWD, face[5])); // Down face
+	faces.push_back(new rescel(NEU, NWU, NED, face[0])); // North face
+	faces.push_back(new rescel(SWU, SEU, SWD, face[1])); // South face
+	faces.push_back(new rescel(SEU, NEU, SED, face[2])); // East face
+	faces.push_back(new rescel(NWU, SWU, NWD, face[3])); // West face
+	faces.push_back(new rescel(NEU, NWU, SEU, face[4])); // Up face
+	faces.push_back(new rescel(SED, SWD, NED, face[5])); // Down face
 
 	return Sculpture(Displacement, rotation, faces);
 

@@ -36,6 +36,8 @@ void Render::RenderSculpture(Rotation rotation, SpaceVector position, Sculpture 
 				}
 			}
 		}
+
+		delete observed;
 	}
 	for (Sculpture chnode : scnode.getChildren()) {
 		RenderSculpture(rotation.merge(chnode.getRotation()), position + rotation.rotate(chnode.getPosition()), chnode);
@@ -44,8 +46,18 @@ void Render::RenderSculpture(Rotation rotation, SpaceVector position, Sculpture 
 
 PixelPoint Render::Project(SpaceVector point) const {
 	if (point.z > 0) {
-		int x = FOVfactor * (point.x / point.z + 0.5) * screen->getSizeX();
-		int y = FOVfactor * (point.y / point.z + 0.5) * screen->getSizeY();
+		double xd = FOVfactor * (point.x / point.z + 0.5) * screen->getSizeX();
+		double yd = FOVfactor * (-point.y / point.z + 0.5) * screen->getSizeY();
+
+		int x = xd;
+		int y = yd;
+
+		if ((x < 0) ^ (xd < 0)) {
+			x += -1;
+		}
+		if ((y < 0) ^ (yd < 0)) {
+			y += -1;
+		}
 
 		if (x >= 0 && x < screen->getSizeX() && 
 			y >= 0 && y < screen->getSizeY()) {
@@ -55,7 +67,7 @@ PixelPoint Render::Project(SpaceVector point) const {
 	}
 	else {
 		int x = FOVfactor * (point.x / point.z + 0.5) * screen->getSizeX();
-		int y = FOVfactor * (point.y / point.z + 0.5) * screen->getSizeY();
+		int y = FOVfactor * (-point.y / point.z + 0.5) * screen->getSizeY();
 
 		if (x >= 0 && x < screen->getSizeX() &&
 			y >= 0 && y < screen->getSizeY()) {

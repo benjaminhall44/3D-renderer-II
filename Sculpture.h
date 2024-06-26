@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TriangularSculptureElement.h"
+#include "SculptureElement.h"
 #include <vector>
 
 
