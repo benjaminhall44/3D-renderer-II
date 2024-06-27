@@ -126,7 +126,7 @@ int main() {
 				case sf::Keyboard::Space:
 					player.moveAbs(JVECTOR * 0.01);
 					break;
-				case sf::Keyboard::LShift:
+				case sf::Keyboard::X:
 					player.moveAbs(JVECTOR * -0.01);
 					break;
 				case sf::Keyboard::I:
