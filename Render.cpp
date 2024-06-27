@@ -8,7 +8,7 @@ void Render::RenderWorld(const Perspective& view, const Sculpture& world) {
 	pixelDepths.setAll(MAX_DEPTH);
 	
 	Rotation rotation = view.getRotation();
-	SpaceVector position = view.getPosition() * -1;
+	SpaceVector position = -view.getPosition();
 
 	RenderSculpture(rotation, position, world);
 }

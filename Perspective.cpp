@@ -8,7 +8,7 @@ Rotation Perspective::getRotation() const {
 	SpaceVector J = SpaceVector(
 		sin(-pitch) * sin(-yaw) + cos(-pitch) * cos(-yaw) * sin(-roll),
 		cos(-pitch) * cos(-roll),
-		sin(-pitch) * cos(-yaw) - cos(-pitch) * sin(-yaw) * sin(-roll)
+		-sin(-pitch) * cos(-yaw) + cos(-pitch) * sin(-yaw) * sin(-roll)
 	); // Up
 	SpaceVector I = K / J; // Rightward
 
