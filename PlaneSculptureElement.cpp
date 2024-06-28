@@ -3,7 +3,7 @@
 
 PlaneSculptureElement::PlaneSculptureElement(SpaceVector Origin, SpaceVector Xaxis, SpaceVector Yaxis) : origin(Origin), xaxis(Xaxis), yaxis(Yaxis), extraCalculations(nullptr) {}
 
-SculptureElement* PlaneSculptureElement::adjust(SpaceVector move, Rotation turn) {
+SculptureElement* PlaneSculptureElement::adjust(SpaceVector move, Orientation turn) {
 	plascel* adjusted = this->getNew(move + turn.rotate(origin), move + turn.rotate(xaxis), move + turn.rotate(yaxis));
 	adjusted->extraCalculations = (PlascelData*)(adjusted->preRender());
 	return adjusted;

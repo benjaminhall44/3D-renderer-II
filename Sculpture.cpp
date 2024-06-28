@@ -12,6 +12,19 @@ Sculpture::Sculpture(
 	children(Children)
 {}
 
+std::vector<SculptureElement*>& Sculpture::getElements() {
+	return elements;
+}
+std::vector<Sculpture> Sculpture::getChildren() {
+	return children;
+}
+SpaceVector Sculpture::getPosition() {
+	return position;
+}
+Orientation Sculpture::getRotation() {
+	return Orientation(rotation);
+}
+
 Sculpture Sculpture::Cube(double side, Image* face, SpaceVector Displacement, Rotation rotation) { // Image for 6 identical sides
 	Image* faces[] = { face, face, face, face, face, face };
 	

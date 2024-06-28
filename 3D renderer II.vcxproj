@@ -135,6 +135,7 @@
     <ClCompile Include="PlascelData.h" />
     <ClCompile Include="RectangularSculptureElement.cpp" />
     <ClCompile Include="Render.cpp" />
+    <ClCompile Include="Orientation.cpp" />
     <ClCompile Include="Rotation.cpp" />
     <ClCompile Include="Sculpture.cpp" />
     <ClCompile Include="TriangularSculptureElement.cpp" />
@@ -146,9 +147,9 @@
     <ClInclude Include="PlaneSculptureElement.h" />
     <ClInclude Include="RectangularSculptureElement.h" />
     <ClInclude Include="Render.h" />
-    <ClInclude Include="Graphics.h" />
     <ClInclude Include="rect.h" />
     <ClInclude Include="Perspective.h" />
+    <ClInclude Include="Orientation.h" />
     <ClInclude Include="Rotation.h" />
     <ClInclude Include="Sculpture.h" />
     <ClInclude Include="SculptureElement.h" />

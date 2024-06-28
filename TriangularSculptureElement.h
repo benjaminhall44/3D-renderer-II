@@ -11,7 +11,7 @@ class TriangularSculptureElement : public SculptureElement {
 public:
 	TriangularSculptureElement(SpaceVector A, SpaceVector B, SpaceVector C, const Image* texture);
 
-	virtual TriangularSculptureElement* adjust(SpaceVector move, Rotation turn);
+	virtual TriangularSculptureElement* adjust(SpaceVector move, Orientation turn);
 
 	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible);
 

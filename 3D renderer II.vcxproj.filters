@@ -13,98 +13,128 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Math">
+    <Filter Include="Resource Files\libs">
+      <UniqueIdentifier>{783669ed-5168-4dd7-97b7-a168e206a901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\graphics">
+      <UniqueIdentifier>{2baafc3a-882c-45a0-9766-457773bbc532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\sculpture">
+      <UniqueIdentifier>{a67b8658-0f7b-4c18-b6ac-4661b4ee5098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\math">
+      <UniqueIdentifier>{e82a818b-ea6b-4f09-ad6e-fed4e8d236b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\math\Header FIles">
       <UniqueIdentifier>{e5b8b1cc-9495-4bc6-b260-d2336bab2b11}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Graphics">
-      <UniqueIdentifier>{46701295-6e7e-4667-88c8-445e765cded2}</UniqueIdentifier>
+    <Filter Include="Resource Files\math\Source Files">
+      <UniqueIdentifier>{d46446e9-2d37-4101-954e-6723db6e11d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\sculpture\Header Files">
+      <UniqueIdentifier>{cecd8346-0ab4-4c31-bd38-54f03f143cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\sculpture\Source Files">
+      <UniqueIdentifier>{f3848aa7-2fb1-44c5-81bc-4f25a1c567bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{817460c6-3af6-4df6-8167-991e3055d448}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sculpture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TriangularSculptureElement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Perspective.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpaceVector.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Orientation.cpp">
+      <Filter>Resource Files\math\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Rotation.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\math\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlaneSculptureElement.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SpaceVector.cpp">
+      <Filter>Resource Files\math\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlascelData.h">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Resource Files\sculpture\Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneSculptureElement.cpp">
+      <Filter>Resource Files\sculpture\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RectangularSculptureElement.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files\sculpture\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sculpture.cpp">
+      <Filter>Resource Files\sculpture\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangularSculptureElement.cpp">
+      <Filter>Resource Files\sculpture\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpaceVector.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Resource Files\math\Header FIles</Filter>
     </ClInclude>
     <ClInclude Include="Perspective.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rect.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Resource Files\math\Header FIles</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Resource Files\math\Header FIles</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="pixel.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Sculpture.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="TriangularSculptureElement.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Render.h">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="PixelPoint.h">
-      <Filter>Header Files\Graphics</Filter>
+    <ClInclude Include="Orientation.h">
+      <Filter>Resource Files\math\Header FIles</Filter>
     </ClInclude>
     <ClInclude Include="Rotation.h">
-      <Filter>Header Files\Math</Filter>
+      <Filter>Resource Files\math\Header FIles</Filter>
     </ClInclude>
-    <ClInclude Include="TriscelData.h">
-      <Filter>Header Files\Graphics</Filter>
+    <ClInclude Include="Sculpture.h">
+      <Filter>Resource Files\sculpture\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SculptureElement.h">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Resource Files\sculpture\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangularSculptureElement.h">
+      <Filter>Resource Files\sculpture\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TriscelData.h">
+      <Filter>Resource Files\sculpture\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RectangularSculptureElement.h">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Resource Files\sculpture\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlaneSculptureElement.h">
-      <Filter>Header Files\Graphics</Filter>
+      <Filter>Resource Files\sculpture\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Resource Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="pixel.h">
+      <Filter>Resource Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelPoint.h">
+      <Filter>Resource Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\AppData\Local\SFML-2.6.1\lib\sfml-graphics.lib" />
-    <Library Include="..\..\..\AppData\Local\SFML-2.6.1\lib\sfml-system.lib" />
-    <Library Include="..\..\..\AppData\Local\SFML-2.6.1\lib\sfml-window.lib" />
+    <Library Include="..\..\..\AppData\Local\SFML-2.6.1\lib\sfml-graphics.lib">
+      <Filter>Resource Files\libs</Filter>
+    </Library>
+    <Library Include="..\..\..\AppData\Local\SFML-2.6.1\lib\sfml-system.lib">
+      <Filter>Resource Files\libs</Filter>
+    </Library>
+    <Library Include="..\..\..\AppData\Local\SFML-2.6.1\lib\sfml-window.lib">
+      <Filter>Resource Files\libs</Filter>
+    </Library>
   </ItemGroup>
 </Project>

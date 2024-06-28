@@ -7,15 +7,15 @@ Render::Render(Image* Screen) : screen(Screen), pixelDepths(Screen->getSizeX(), 
 void Render::RenderWorld(const Perspective& view, const Sculpture& world) {
 	pixelDepths.setAll(MAX_DEPTH);
 	
-	Rotation rotation = view.getRotation();
+	Orientation orientation(-view.getRotation());
 	SpaceVector position = -view.getPosition();
 
-	RenderSculpture(rotation, position, world);
+	RenderSculpture(orientation, position, world);
 }
 
-void Render::RenderSculpture(Rotation rotation, SpaceVector position, Sculpture scnode) {
+void Render::RenderSculpture(Orientation orientation, SpaceVector position, Sculpture scnode) {
 	for (SculptureElement* element : scnode.getElements()) {
-		SculptureElement* observed = element->adjust(position, rotation);
+		SculptureElement* observed = element->adjust(position, orientation);
 
 		int xmax = 0, xmin = 0, ymax = 0, ymin = 0;
 		bool visible = true;
@@ -40,7 +40,7 @@ void Render::RenderSculpture(Rotation rotation, SpaceVector position, Sculpture 
 		delete observed;
 	}
 	for (Sculpture chnode : scnode.getChildren()) {
-		RenderSculpture(rotation.merge(chnode.getRotation()), position + rotation.rotate(chnode.getPosition()), chnode);
+		RenderSculpture(orientation.merge(chnode.getRotation()), position + orientation.rotate(chnode.getPosition()), chnode);
 	}
 }
 

@@ -3,7 +3,7 @@
 #include "Windows.h"
 #include <SFML/Graphics.hpp>
 
-#include "Graphics.h"
+#include "Render.h"
 #include "perspective.h"
 
 #include <vector>
@@ -17,7 +17,7 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "3D Renderer II");
 
 	Image screen(SCREEN_WIDTH, SCREEN_HEIGHT);
-	Perspective player(SpaceVector(0, -2, 0), 0.0, 0.0, 0.0);
+	Perspective player(SpaceVector(0, -2, 0), Rotation(0.0, 0.0, 0.0));
 	
 	Render renderer(&screen);
 
@@ -94,7 +94,7 @@ int main() {
 	bricks.setPixel(6, 7, pixel(0, 255, 0));
 	bricks.setPixel(7, 7, pixel(0, 255, 0));
 
-	Sculpture world = Sculpture::Cube(2, &bricks, SpaceVector(0, 0, 5), MAINAXIS);
+	Sculpture world = Sculpture::Cube(2, &bricks, SpaceVector(0, 0, 5), FORWARD);
 
 	sf::Texture texture;
 
@@ -130,22 +130,22 @@ int main() {
 					player.moveAbs(JVECTOR * -0.01);
 					break;
 				case sf::Keyboard::I:
-					player.turnAbs(0, 0.01, 0);
+					player.turn(0, 0.01, 0);
 					break;
 				case sf::Keyboard::K:
-					player.turnAbs(0, -0.01, 0);
+					player.turn(0, -0.01, 0);
 					break;
 				case sf::Keyboard::J:
-					player.turnAbs(-0.01, 0, 0);
+					player.turn(-0.01, 0, 0);
 					break;
 				case sf::Keyboard::L:
-					player.turnAbs(0.01, 0, 0);
+					player.turn(0.01, 0, 0);
 					break;
 				case sf::Keyboard::U:
-					player.turnAbs(0, 0, -0.01);
+					player.turn(0, 0, -0.01);
 					break;
 				case sf::Keyboard::O:
-					player.turnAbs(0, 0, 0.01);
+					player.turn(0, 0, 0.01);
 					break;
 				}
 			}

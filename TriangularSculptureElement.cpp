@@ -3,7 +3,7 @@
 
 TriangularSculptureElement::TriangularSculptureElement(SpaceVector A, SpaceVector B, SpaceVector C, const Image* Texture) : a(A), b(B), c(C), texture(Texture) {}
 
-triscel* TriangularSculptureElement::adjust(SpaceVector move, Rotation turn) {
+triscel* TriangularSculptureElement::adjust(SpaceVector move, Orientation turn) {
 	triscel* adjusted = new triscel(move + turn.rotate(a), move + turn.rotate(b), move + turn.rotate(c), texture);
 	adjusted->data = (TriscelData*) (adjusted->preRender());
 	return adjusted;

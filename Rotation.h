@@ -1,13 +1,23 @@
 #pragma once
-#include "SpaceVector.h"
 
 class Rotation {
 public:
-	Rotation(SpaceVector x_axis, SpaceVector y_axis, SpaceVector z_axis) : i(x_axis), j(y_axis), k(z_axis) {};
-	Rotation merge(const Rotation& addend) const;
-	SpaceVector rotate(const SpaceVector& displacement) const;
+	Rotation(double Yaw, double Pitch, double Roll);
+
+	double getYaw() const;
+	double getPitch() const;
+	double getRoll() const;
+
+	void turn(double Yaw, double Pitch, double Roll);
+
+	Rotation operator-() const;
+
 private:
-	SpaceVector i, j, k;
+	static double normalizeAngle(double angle);
+
+	double yaw;
+	double pitch;
+	double roll;
 };
 
-const Rotation MAINAXIS(IVECTOR, JVECTOR, KVECTOR);
+const Rotation FORWARD(0.0, 0.0, 0.0);

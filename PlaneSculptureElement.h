@@ -17,7 +17,7 @@ public:
 		delete extraCalculations;
 	}
 
-	virtual SculptureElement* adjust(SpaceVector move, Rotation turn) override;
+	virtual SculptureElement* adjust(SpaceVector move, Orientation turn) override;
 
 	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible) override;
 

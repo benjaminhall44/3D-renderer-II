@@ -24,6 +24,6 @@ private:
 	Matrix<double> pixelDepths;
 	Image* screen;
 	double FOVfactor;
-	void RenderSculpture(Rotation rotation, SpaceVector position, Sculpture scnode);
+	void RenderSculpture(Orientation orientation, SpaceVector position, Sculpture scnode);
 	double getDepth(int x, int y);
 };

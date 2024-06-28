@@ -14,3 +14,5 @@ private:
 	
 
 };
+
+typedef pixel color;
