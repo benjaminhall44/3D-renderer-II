@@ -105,7 +105,7 @@ SpaceVector PlaneSculptureElement::traceRay(const SpaceVector ray) {
 	return ray * (extraCalculations->planeConstant / (ray * extraCalculations->normal));
 }
 
-pixel PlaneSculptureElement::pointColor(SpaceVector point, bool& flag) {
+Color PlaneSculptureElement::pointColor(SpaceVector point, bool& flag) {
 	point -= origin;
 	double Px = (point * extraCalculations->xPrime) / extraCalculations->xPrime.squared();
 	double Py = ((point - extraCalculations->xArm * Px) * extraCalculations->yArm) / extraCalculations->yArm.squared();
@@ -117,6 +117,6 @@ pixel PlaneSculptureElement::pointColor(SpaceVector point, bool& flag) {
 	}
 	else {
 		flag = false;
-		return pixel();
+		return Color();
 	}
 }

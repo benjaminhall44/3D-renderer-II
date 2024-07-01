@@ -116,7 +116,7 @@
     <ClInclude Include="Image.h">
       <Filter>Resource Files\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="pixel.h">
+    <ClInclude Include="Color.h">
       <Filter>Resource Files\graphics</Filter>
     </ClInclude>
     <ClInclude Include="PixelPoint.h">
@@ -124,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="Render.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteImage.h">
+      <Filter>Resource Files\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

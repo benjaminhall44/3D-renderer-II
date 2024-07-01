@@ -28,7 +28,7 @@ void Render::RenderSculpture(Orientation orientation, SpaceVector position, Scul
 					SpaceVector point = observed->traceRay(getPixelVector(x, y));
 					if (point.getZ() > 0 && checkPointDepth(x, y, point.getZ())) {
 						bool flag;
-						pixel color = observed->pointColor(point, flag);
+						Color color = observed->pointColor(point, flag);
 						if (flag) {
 							Print(x, y, point.getZ(), color);
 						}
@@ -77,7 +77,7 @@ PixelPoint Render::Project(SpaceVector point) const {
 	}
 }
 
-void Render::Print(int x, int y, double depth, pixel color) {
+void Render::Print(int x, int y, double depth, Color color) {
 	if (depth < pixelDepths.at(x, y)) {
 		screen->setPixel(x, y, color);
 		pixelDepths.at(x, y) = depth;

@@ -22,7 +22,7 @@ public:
 	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible) override;
 
 	virtual SpaceVector traceRay(const SpaceVector ray);
-	virtual pixel pointColor(SpaceVector point, bool& flag);
+	virtual Color pointColor(SpaceVector point, bool& flag);
 protected:
 	struct PlanePoint {
 		PlanePoint(double px, double py) : Px(px), Py(py) {};
@@ -32,7 +32,7 @@ protected:
 	virtual PlaneSculptureElement* getNew(SpaceVector origin, SpaceVector xaxis, SpaceVector yaxis) = 0;
 	virtual bool onSurface(double px, double py) = 0;
 	virtual std::vector<PlanePoint> getEnds() = 0;
-	virtual pixel pointColor(double px, double py) = 0;
+	virtual Color pointColor(double px, double py) = 0;
 	
 private:
 	PlascelData* preRender();

@@ -16,7 +16,7 @@ std::vector<PlaneSculptureElement::PlanePoint> RectangularSculptureElement::getE
 	return std::vector<PlaneSculptureElement::PlanePoint>({ PlanePoint(0, 0), PlanePoint(1, 0), PlanePoint(0, 1), PlanePoint(1, 1) });
 }
 
-pixel RectangularSculptureElement::pointColor(double px, double py) {
+Color RectangularSculptureElement::pointColor(double px, double py) {
 	int Tx = px * texture->getSizeX();
 	int Ty = py * texture->getSizeY();
 	return texture->getPixel(Tx, Ty);

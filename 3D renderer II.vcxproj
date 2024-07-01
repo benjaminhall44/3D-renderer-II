@@ -154,8 +154,9 @@
     <ClInclude Include="Sculpture.h" />
     <ClInclude Include="SculptureElement.h" />
     <ClInclude Include="SpaceVector.h" />
-    <ClInclude Include="pixel.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="SpriteImage.h" />
     <ClInclude Include="TriangularSculptureElement.h" />
     <ClInclude Include="TriscelData.h" />
   </ItemGroup>

@@ -98,7 +98,7 @@ SpaceVector TriangularSculptureElement::traceRay(const SpaceVector ray) {
 	return ray * (data->planeConstant / (ray * data->normal));
 }
 
-pixel TriangularSculptureElement::pointColor(SpaceVector point, bool& flag) {
+Color TriangularSculptureElement::pointColor(SpaceVector point, bool& flag) {
 	point -= c;
 	double Px = (point * data->bPrime) / data->bPrime.squared();
 	double Py = ((point - data->B * Px) * data->A) / data->A.squared();
@@ -113,6 +113,6 @@ pixel TriangularSculptureElement::pointColor(SpaceVector point, bool& flag) {
 	}
 	else {
 		flag = false;
-		return pixel();
+		return Color();
 	}
 }

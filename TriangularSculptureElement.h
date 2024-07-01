@@ -16,7 +16,7 @@ public:
 	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible);
 
 	virtual SpaceVector traceRay(const SpaceVector ray);
-	virtual pixel pointColor(SpaceVector point, bool& flag);
+	virtual Color pointColor(SpaceVector point, bool& flag);
 protected:
 	
 private:

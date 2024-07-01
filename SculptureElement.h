@@ -12,7 +12,7 @@ public:
 	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible)=0;
 
 	virtual SpaceVector traceRay(const SpaceVector ray)=0;
-	virtual pixel pointColor(SpaceVector point, bool& flag)=0;
+	virtual Color pointColor(SpaceVector point, bool& flag)=0;
 };
 
 

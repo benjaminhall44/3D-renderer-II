@@ -12,7 +12,7 @@ protected:
 	virtual PlaneSculptureElement* getNew(SpaceVector origin, SpaceVector xaxis, SpaceVector yaxis) override;
 	virtual bool onSurface(double px, double py) override;
 	virtual std::vector<PlanePoint> getEnds() override;
-	virtual pixel pointColor(double px, double py) override;
+	virtual Color pointColor(double px, double py) override;
 private:
 	const Image* texture;
 
