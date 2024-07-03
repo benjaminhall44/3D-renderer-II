@@ -114,16 +114,16 @@ int main() {
 					player.turn(0, -0.01, 0);
 					break;
 				case sf::Keyboard::J:
-					player.turn(-0.01, 0, 0);
-					break;
-				case sf::Keyboard::L:
 					player.turn(0.01, 0, 0);
 					break;
+				case sf::Keyboard::L:
+					player.turn(-0.01, 0, 0);
+					break;
 				case sf::Keyboard::U:
-					player.turn(0, 0, -0.01);
+					player.turn(0, 0, 0.01);
 					break;
 				case sf::Keyboard::O:
-					player.turn(0, 0, 0.01);
+					player.turn(0, 0, -0.01);
 					break;
 				}
 			}

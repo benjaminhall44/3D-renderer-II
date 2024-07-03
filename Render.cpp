@@ -7,7 +7,7 @@ Render::Render(Image* Screen) : screen(Screen), pixelDepths(Screen->getSizeX(), 
 void Render::RenderWorld(const Perspective& view, const Sculpture& world) {
 	pixelDepths.setAll(MAX_DEPTH);
 	
-	Orientation orientation(-view.getRotation());
+	Orientation orientation = Orientation(view.getRotation()).inverse();
 	SpaceVector position = -view.getPosition();
 
 	RenderSculpture(orientation, orientation.rotate(position), &world);

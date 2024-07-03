@@ -2,6 +2,8 @@
 #include "math.h"
 
 Orientation::Orientation(double yaw, double pitch, double roll) {
+	// Pre-calculate repeated sin/cos values
+
 	k = SpaceVector(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw)); // Forward
 	j = SpaceVector(
 		-sin(pitch) * sin(yaw) * cos(roll) + cos(yaw) * sin(roll),
@@ -36,4 +38,11 @@ Orientation Orientation::merge(const Orientation& addend) const {
 
 SpaceVector Orientation::rotate(const SpaceVector& displacement) const {
 	return (i * displacement.getX()) + (j * displacement.getY()) + (k * displacement.getZ());
+}
+
+Orientation Orientation::inverse() const {
+	SpaceVector si(i.getX(), j.getX(), k.getX());
+	SpaceVector sj(i.getY(), j.getY(), k.getY());
+	SpaceVector sk(i.getZ(), j.getZ(), k.getZ());
+	return Orientation(si, sj, sk);
 }

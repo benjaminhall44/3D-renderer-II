@@ -9,6 +9,7 @@ public:
 	Orientation(double yaw, double pitch, double roll);
 	Orientation merge(const Orientation& addend) const;
 	SpaceVector rotate(const SpaceVector& displacement) const;
+	Orientation inverse() const;
 private:
 	SpaceVector i, j, k;
 };
