@@ -10,20 +10,34 @@ using namespace std;
 
 class Sculpture {
 public:
-	Sculpture(SpaceVector Displacement = ZEROVECTOR, Rotation rotation = FORWARD, vector<SculptureElement*> elements = {}, vector<Sculpture> children = {});
+	Sculpture(SpaceVector Displacement = ZEROVECTOR, Rotation rotation = FORWARD, vector<SculptureElement*> elements = {}, vector<Sculpture*> children = {});
 
-	static Sculpture Cube(double side, Image* face, SpaceVector Displacement = ZEROVECTOR, Rotation rotation = FORWARD); // Image for 6 identical sides
-	static Sculpture Cube(double side, Image** face, SpaceVector Displacement = ZEROVECTOR, Rotation rotation = FORWARD); // 6 Images one for each side
+	~Sculpture();
 
-	std::vector<SculptureElement*>& getElements();
-	std::vector<Sculpture> getChildren();
-	SpaceVector getPosition();
-	Orientation getRotation();
+	static Sculpture* Cube(double side, Image* face, SpaceVector Displacement = ZEROVECTOR, Rotation rotation = FORWARD); // Image for 6 identical sides
+	static Sculpture* Cube(double side, Image** face, SpaceVector Displacement = ZEROVECTOR, Rotation rotation = FORWARD); // 6 Images one for each side
+
+	const std::vector<SculptureElement*>& getElements() const;
+	const std::vector<Sculpture*> getChildren() const;
+	SpaceVector getPosition() const;
+	Orientation getRotation() const;
+
+	void setPosition(SpaceVector pos);
+	void move(SpaceVector displacement);
+
+	void setRotation(Rotation rot);
+	void rotate(Rotation angle);
+
+	void addChild(Sculpture* child);
+	void addElement(SculptureElement* element);
+
+	void removeChild(Sculpture* child);
+	void removeElement(SculptureElement* element);
 
 private:
 	SpaceVector position;
 	Rotation rotation;
 
 	vector<SculptureElement*> elements;
-	vector<Sculpture> children;
+	vector<Sculpture*> children;
 };

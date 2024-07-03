@@ -10,11 +10,11 @@ void Render::RenderWorld(const Perspective& view, const Sculpture& world) {
 	Orientation orientation(-view.getRotation());
 	SpaceVector position = -view.getPosition();
 
-	RenderSculpture(orientation, position, world);
+	RenderSculpture(orientation, orientation.rotate(position), &world);
 }
 
-void Render::RenderSculpture(Orientation orientation, SpaceVector position, Sculpture scnode) {
-	for (SculptureElement* element : scnode.getElements()) {
+void Render::RenderSculpture(Orientation orientation, SpaceVector position, const Sculpture* scnode) {
+	for (SculptureElement* element : scnode->getElements()) {
 		SculptureElement* observed = element->adjust(position, orientation);
 
 		int xmax = 0, xmin = 0, ymax = 0, ymin = 0;
@@ -39,8 +39,8 @@ void Render::RenderSculpture(Orientation orientation, SpaceVector position, Scul
 
 		delete observed;
 	}
-	for (Sculpture chnode : scnode.getChildren()) {
-		RenderSculpture(orientation.merge(chnode.getRotation()), position + orientation.rotate(chnode.getPosition()), chnode);
+	for (Sculpture* chnode : scnode->getChildren()) {
+		RenderSculpture(orientation.merge(chnode->getRotation()), position + orientation.rotate(chnode->getPosition()), chnode);
 	}
 }
 

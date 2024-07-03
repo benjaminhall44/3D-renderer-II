@@ -9,6 +9,7 @@ public:
 	double getRoll() const;
 
 	void turn(double Yaw, double Pitch, double Roll);
+	void turn(Rotation angle);
 
 	Rotation operator-() const;
 

@@ -4,10 +4,11 @@
 Orientation::Orientation(double yaw, double pitch, double roll) {
 	k = SpaceVector(cos(pitch) * sin(yaw), sin(pitch), cos(pitch) * cos(yaw)); // Forward
 	j = SpaceVector(
-		sin(pitch) * sin(yaw) + cos(pitch) * cos(yaw) * sin(roll),
+		-sin(pitch) * sin(yaw) * cos(roll) + cos(yaw) * sin(roll),
 		cos(pitch) * cos(roll),
-		-sin(pitch) * cos(yaw) + cos(pitch) * sin(yaw) * sin(roll)
+		-sin(pitch) * cos(yaw) * cos(roll) - sin(yaw) * sin(roll)
 	); // Up
+
 	i = k / j;
 }
 
@@ -27,8 +28,8 @@ Orientation Orientation::merge(const Orientation& addend) const {
 	double skz = i.getZ() * addend.k.getX() + j.getZ() * addend.k.getY() + k.getZ() * addend.k.getZ();
 
 	SpaceVector si(six, siy, siz);
-	SpaceVector sj(six, siy, siz);
-	SpaceVector sk(six, siy, siz);
+	SpaceVector sj(sjx, sjy, sjz);
+	SpaceVector sk(skx, sky, skz);
 
 	return Orientation(si, sj, sk);
 }

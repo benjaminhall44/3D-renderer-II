@@ -13,6 +13,9 @@ void Rotation::turn(double Yaw, double Pitch, double Roll) {
 	pitch = normalizeAngle(pitch + Pitch);
 	roll = normalizeAngle(roll + Roll);
 }
+void Rotation::turn(Rotation angle) {
+	turn(angle.yaw, angle.pitch, angle.roll);
+}
 
 Rotation Rotation::operator-() const{
 	return Rotation(-yaw, -pitch, -roll);
