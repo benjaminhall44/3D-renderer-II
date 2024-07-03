@@ -4,6 +4,7 @@
 
 class Render;
 
+// A PlaneSculptureElement containing a rectangle
 class RectangularSculptureElement : public PlaneSculptureElement {
 public:
 	RectangularSculptureElement(SpaceVector leftTop, SpaceVector rightTop, SpaceVector leftBottom, const Image* Texture);

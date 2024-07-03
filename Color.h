@@ -1,5 +1,6 @@
 #pragma once
 
+// Contains a 3 bytes rgb color
 class Color {
 public:
 	Color() : red(0), green(0), blue(0) {}

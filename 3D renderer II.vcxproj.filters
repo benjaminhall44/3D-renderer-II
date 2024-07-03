@@ -40,6 +40,12 @@
     <Filter Include="Main">
       <UniqueIdentifier>{817460c6-3af6-4df6-8167-991e3055d448}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\graphics\Header FIles">
+      <UniqueIdentifier>{50c840af-5ec2-4429-a5fa-7b18447cde85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\graphics\Source Files">
+      <UniqueIdentifier>{3630e12c-61cb-471f-a535-fca17149a0de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Render.cpp">
@@ -75,6 +81,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Resource Files\graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteImage.cpp">
+      <Filter>Resource Files\graphics\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Resource Files\math\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SpaceVector.h">
@@ -82,9 +97,6 @@
     </ClInclude>
     <ClInclude Include="Perspective.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rect.h">
-      <Filter>Resource Files\math\Header FIles</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Resource Files\math\Header FIles</Filter>
@@ -104,29 +116,26 @@
     <ClInclude Include="TriangularSculptureElement.h">
       <Filter>Resource Files\sculpture\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TriscelData.h">
-      <Filter>Resource Files\sculpture\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RectangularSculptureElement.h">
       <Filter>Resource Files\sculpture\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlaneSculptureElement.h">
       <Filter>Resource Files\sculpture\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>Resource Files\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Resource Files\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="PixelPoint.h">
-      <Filter>Resource Files\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Render.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Resource Files\graphics\Header FIles</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Resource Files\graphics\Header FIles</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelPoint.h">
+      <Filter>Resource Files\graphics\Header FIles</Filter>
+    </ClInclude>
     <ClInclude Include="SpriteImage.h">
-      <Filter>Resource Files\graphics</Filter>
+      <Filter>Resource Files\graphics\Header FIles</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

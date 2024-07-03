@@ -1,32 +1,22 @@
 #pragma once
-#include "SculptureElement.h"
+#include "PlaneSculptureElement.h"
 #include "Image.h"
-#include "SpaceVector.h"
-#include "Rotation.h"
-#include "TriscelData.h"
 
 class Render;
 
-class TriangularSculptureElement : public SculptureElement {
+// A PlaneSculptureElement containing a triangle
+class TriangularSculptureElement : public PlaneSculptureElement {
 public:
 	TriangularSculptureElement(SpaceVector A, SpaceVector B, SpaceVector C, const Image* texture);
 
-	virtual TriangularSculptureElement* adjust(SpaceVector move, Orientation turn);
-
-	virtual void getCorners(const Render& rendering, int& xmax, int& xmin, int& ymax, int& ymin, bool& visible);
-
-	virtual SpaceVector traceRay(const SpaceVector ray);
-	virtual Color pointColor(SpaceVector point, bool& flag);
 protected:
-	
+	virtual PlaneSculptureElement* getNew(SpaceVector origin, SpaceVector xaxis, SpaceVector yaxis) override;
+	virtual bool onSurface(double px, double py) override;
+	virtual std::vector<PlanePoint> getEnds() override;
+	virtual Color pointColor(double px, double py) override;
 private:
-	TriscelData* preRender();
 	const Image* texture;
-	TriscelData* data;
-	SpaceVector a;
-	SpaceVector b;
-	SpaceVector c;
-	//
+
 };
 
 typedef TriangularSculptureElement triscel;

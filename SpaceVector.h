@@ -1,5 +1,7 @@
 #pragma once
 
+// A three dimensional vector value with mathematics
+// Cross product is done with "/"
 class SpaceVector {
 
 public:
@@ -11,13 +13,18 @@ public:
 	SpaceVector& operator+=(SpaceVector);
 	SpaceVector operator-(SpaceVector) const;
 	SpaceVector& operator-=(SpaceVector);
+
 	// Vector-scalar multiplication
 	SpaceVector operator*(double) const;
 	SpaceVector& operator*=(double);
+
+	// Vector -scalar division
 	SpaceVector operator/(double) const;
 	SpaceVector& operator/=(double);
+
 	// Vector dot product
 	double operator*(SpaceVector) const;
+
 	// Vector cross product
 	SpaceVector operator/(SpaceVector) const;
 	SpaceVector& operator/=(SpaceVector);
@@ -30,8 +37,12 @@ public:
 
 	SpaceVector operator-() const;
 
+	// Returns the magnitude of the vector
 	double magnitude() const;
+	// Returns a unit vector in the direction of the vector
 	SpaceVector unit() const;
+	// Returns the magnitude of the vector squared
+	// Less calculations than using magnitude() and squareing
 	double squared() const;
 
 	double getX() const;

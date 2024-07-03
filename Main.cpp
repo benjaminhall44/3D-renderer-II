@@ -10,6 +10,7 @@
 
 #include <vector>
 
+// Color arrays used to create images
 const Color BRICKS[] = {
 	RED  , RED  , RED  , WHITE, RED  , RED  , RED  , WHITE,
 	WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE,
@@ -55,33 +56,41 @@ const Color BLUE_BRICKS[] = {
 };
 
 int main() {
-
+	// Define how large the window is
 	const int SCREEN_WIDTH = 200;
 	const int SCREEN_HEIGHT = 200;
 
+	// Create Image objects for the sculptures
 	Image bricks(8, 8, BRICKS);
 	Image blueBricks(8, 8, BLUE_BRICKS);
 	Image mossBricks(8, 8, MOSS_BRICKS);
 	Image gelBricks(8, 8, GEL_BRICKS);
 
+	// Create the SFML window
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "3D Renderer II");
 
+	// Create a SpriteImage which works as the screen
+	// It can be used by the renderer and can also
+	// Create a Sprite object for SFML
 	SpriteImage screen(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+	// Define the users perspective
 	Perspective player(SpaceVector(0, 0, 0), Rotation(0.0, 0.0, 0.0));
 	
+	// Create the renderer connected to the SpriteImage
 	Render renderer(&screen);
 
+	// Build the world
 	Sculpture world;
 
 	world.addChild(world.Cube(2, &bricks, SpaceVector(0, 0, 5), FORWARD));
-
 	world.addChild(world.Cube(2, &gelBricks, SpaceVector(0, 0, -5), Rotation(0, 0, 0)));
-
 	world.addChild(world.Cube(2, &mossBricks, SpaceVector(5, 0, 0), Rotation(0, 0, 0)));
 	world.addChild(world.Cube(2, &blueBricks, SpaceVector(-5, 0, 0), Rotation(0, 0, 0)));
 
+	// The main loop
 	while (window.isOpen()) {
-
+		// Handle events such as exits and key presses
 		sf::Event event;
 		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) {
@@ -128,9 +137,14 @@ int main() {
 				}
 			}
 		}
+		// Fill the screen with background color
 		screen.fill(Color(100, 200, 255));
+
+		// Have the renderer draw the world onto the screen it screen
 		renderer.RenderWorld(player, world);
 		
+		// Draw the screen representation used by the renderer
+		// onto the window and display it
 		window.draw(screen.getSprite());
 		window.display();
 

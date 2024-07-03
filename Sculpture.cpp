@@ -85,6 +85,8 @@ void Sculpture::addElement(SculptureElement* element) {
 }
 
 void Sculpture::removeChild(Sculpture* child) {
+	// Search through children until the child is found then
+	// remove it and move everything back
 	bool found = false;
 	for (int i = 0; i < children.size(); i++) {
 		if (found) {
@@ -101,6 +103,8 @@ void Sculpture::removeChild(Sculpture* child) {
 	
 }
 void Sculpture::removeElement(SculptureElement* element) {
+	// Search through children until the element is found then
+	// remove it and move everything back
 	bool found = false;
 	for (int i = 0; i < elements.size(); i++) {
 		if (found) {
